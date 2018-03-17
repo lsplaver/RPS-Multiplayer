@@ -259,7 +259,7 @@ $(document).ready(function() {
             // if (((tempPlayerOneID != " ") || (tempPlayerOneID != "")) && ((tempPlayerTwoID == "") || (tempPlayerTwoID == " "))) {
             else if (seatAvailable = 2) {
                 var tempName = $("#inputUser").val();
-                $("#player1Title").text("Player 2: " + $("#inputUser").val());
+                $("#player2Title").text("Player 2: " + $("#inputUser").val());
                 // to test the scores player1
                 var playerTwoWins = 0, playerTwoLosses = 0, playerTwoTies = 0;
                 rootRef.update({
