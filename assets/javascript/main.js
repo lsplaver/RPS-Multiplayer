@@ -42,6 +42,7 @@ $(document).ready(function() {
                 console.log("playerOneTies: " + playerOneTies);
             }
 
+            // con.onDisconnect().remove();
             else if (playerTwoID === connectionID) {
                 rootRef.set({
                     "playerTwoID": null,
@@ -70,8 +71,8 @@ $(document).ready(function() {
     // Initialize the player's scores variables
     // var playerOneWins = 0, playerOneLosses = 0, playerOneTies = 0, playerTwoWins = 0, playerTwoLosses = 0, playerTwoTies = 0; //, wins, losses, ties;
 
-    var initialPlayerOneID = " ", initialPlayerOneName = " ", initialPlayerOneWins = " ", initialPlayerOneLosses = " ", initialPlayerOneTies = " ";
-    var initialPlayerTwoID = " ", initialPlayerTwoName = " ", initialPlayerTwoWins = " ", initialPlayerTwoLosses = " ", initialPlayerTwoTies = " ";
+    var initialPlayerOneID = "randIDOne", initialPlayerOneName = "randNameOne", initialPlayerOneWins = "RandWinsOne", initialPlayerOneLosses = "RandLossesOne", initialPlayerOneTies = "randTiesOne";
+    var initialPlayerTwoID = "randIDTwo", initialPlayerTwoName = "randNamrTwo", initialPlayerTwoWins = "randWinsTwo", initialPlayerTwoLosses = "randLossesTwo", initialPlayerTwoTies = "randTiesTwo";
     var playerOneID, playerOneName, playerOneWins, playerOneLosses, playerOneTies;
     var playerTwoID, playerTwoName, playerTwoWins, playerTwoLosses, playerTwoTies;
     function setDefaultPlayerOne() {
@@ -83,13 +84,16 @@ $(document).ready(function() {
         }
 
     database.ref().on("value", function(snapshot) {
+        event.preventDefault();
         if (snapshot.child("/players/playerOneID").exists() && snapshot.child("/players/playerOneName").exists() && snapshot.child("/players/playerOneWins").exists() && snapshot.child("/players/playerOneLosses").exists() && snapshot.child("/players/playerOneTies").exists() && snapshot.child("/players/playerTwoID").exists() && snapshot.child("/players/playerTwoName").exists() && snapshot.child("/players/playerTwoWins").exists() && snapshot.child("/players/playerTwoLosses").exists() && snapshot.child("/players/playerTwoTies").exists()) {
             if ((currentLobbySize < 2) && ((snapshot.child("/players/playerOneID") !== " ") && (snapshot.child("/players/playerOneName") !== " ") && (snapshot.child("/players/playerOneWins") !== " ") && (snapshot.child("/players/playerOneLosses") !== " ") && (snapshot.child("/players/playerOneTies") !== " ") && (snapshot.child("/players/playerTwoID") !== " ") && (snapshot.child("/players/playerTwoName") !== " ") && (snapshot.child("/players/playerTwoWins") !== " ") && (snapshot.child("/players/playerTwoLosses") !== " ") && (snapshot.child("/players/playerTwoTies") !== " "))) {
-                alert("There are currently two players already playing \nPlease wait until there is a free spot");
+                // alert("There are currently two players already playing \nPlease wait until there is a free spot");
             
                 playerOneID = snapshot.val().playerOneID, playerOneName = snapshot.val().playerOneName, playerOneWins = snapshot.val().playerOneWins, playerOneLosses = snapshot.val().playerOneLosses, playerOneTies = snapshot.val().playerOneTies;
             
                 playerTwoID = snapshot.val().playerTwoID, playerTwoName = snapshot.val().playerTwoName, playerTwoWins = snapshot.val().playerTwoWins, playerTwoLosses = snapshot.val().playerTwoLosses, playerTwoTies = snapshot.val().playerTwoTies;
+
+                seatAvailable = 3;
             
                 console.log("playerOneID: " + playerOneID);
                 console.log("playerOneName: " + playerOneName);
@@ -104,7 +108,7 @@ $(document).ready(function() {
             }
 
             else if ((snapshot.child("/players/playerOneID") === " ") && (snapshot.child("/players/playerOneName") === " ") && (snapshot.child("/players/playerOneWins") === " ") && (snapshot.child("/players/playerOneLosses") === " ") && (snapshot.child("/players/playerOneTies") === " ") && (snapshot.child("/players/playerTwoID") !== " ") && (snapshot.child("/players/playerTwoName") !== " ") && (snapshot.child("/players/playerTwoWins") !== " ") && (snapshot.child("/players/playerTwoLosses") !== " ") && (snapshot.child("/players/playerTwoTies") !== " ")) {
-                alert("Seat one is now available if you wish to play");
+                // alert("Seat one is now available if you wish to play");
 
                 playerTwoID = snapshot.val().playerTwoID, playerTwoName = snapshot.val().playerTwoName, playerTwoWins = snapshot.val().playerTwoWins, playerTwoLosses = snapshot.val().playerTwoLosses, playerTwoTies = snapshot.val().playerTwoTies;
 
@@ -118,7 +122,7 @@ $(document).ready(function() {
             }
 
             else if ((snapshot.child("/players/playerOneID") !== " ") && (snapshot.child("/players/playerOneName") !== " ") && (snapshot.child("/players/playerOneWins") !== " ") && (snapshot.child("/players/playerOneLosses") !== " ") && (snapshot.child("/players/playerOneTies") !== " ") && (snapshot.child("/players/playerTwoID") === " ") && (snapshot.child("/players/playerTwoName") === " ") && (snapshot.child("/players/playerTwoWins") === " ") && (snapshot.child("/players/playerTwoLosses") === " ") && (snapshot.child("/players/playerTwoTies") === " ")) {
-            alert("Seat two is now available if you wish to play");
+            // alert("Seat two is now available if you wish to play");
 
             playerOneID = snapshot.val().playerOneID, playerOneName = snapshot.val().playerOneName, playerOneWins = snapshot.val().playerOneWins, playerOneLosses = snapshot.val().playerOneLosses, playerOneTies = snapshot.val().playerOneTies;
 
@@ -137,10 +141,10 @@ $(document).ready(function() {
             }
 
             else {
-                alert("Both seats are free");
+                // alert("Both seats are free");
 
                 // since both are available it will automatically seat the player in the first available seat
-                seatAvailable = 1;
+                seatAvailable = 0;
             }
         }
 
@@ -184,14 +188,14 @@ $(document).ready(function() {
     $("#btnSubmit").on("click", function(event) {
         event.preventDefault();
         database.ref().on("value", function(snapshot) {
-            // if (((snapshot.child("/players/playerOneID") == "") && (snapshot.child("/players/playerTwoID") == "")) || ((snapshot.child("/players/playerOneID") == "") && (snapshot.child("/players/playerTwoID") != ""))) {
             var tempPlayerOneID = snapshot.child("players/playerOneID").val();
             console.log("tempPlayerOneID: " + tempPlayerOneID);
             var tempPlayerTwoID = snapshot.child("players/playerTwoID").val();
             console.log("tempPlayerTwoID: " + tempPlayerTwoID);
-                
-            // if ((((snapshot.child("players/playerOneID").val() == " ") || (snapshot.val().playerOneID == "")) && (snapshot.child("players").val().playerTwoID === " ")) || ((snapshot.child("players").val().playerOneID === " ") && (snapshot.child("players").val().playerTwoID !== " "))) {
-            if ((((tempPlayerOneID == " ") || (tempPlayerOneID == "")) && ((tempPlayerTwoID == "") || (tempPlayerTwoID == " "))) || ((tempPlayerOneID == "") || (tempPlayerOneID == " ") && ((tempPlayerTwoID != "") || (tempPlayerTwoID != " ")))) {
+
+            if (tempPlayerOneID !== tempPlayerTwoID) {
+            if (seatAvailable <= 1) {
+            // if ((((tempPlayerOneID == " ") || (tempPlayerOneID == "")) && ((tempPlayerTwoID == "") || (tempPlayerTwoID == " "))) || ((tempPlayerOneID == "") || (tempPlayerOneID == " ") && ((tempPlayerTwoID != "") || (tempPlayerTwoID != " ")))) {
                     var tempName = $("#inputUser").val();
                 $("#player1Title").text("Player 1: " + tempName); // + $("#inputUser").val());
                 // to test the scores player1
@@ -210,12 +214,27 @@ $(document).ready(function() {
                     randTies = Math.floor(Math.random() * 100);
                 
                     currentScores(1, randWins, randLosses, randTies);
+
+                    playerOneWins = randWins;
+                    playerOneLosses = randLosses;
+                    playerOneTies = randTies;
+
+                    rootRef.update({
+                        "playerOneName": tempName,
+                        "playerOneID": connectionID,
+                        "playerOneWins": playerOneWins,
+                        "playerOneLosses": playerOneLosses,
+                        "playerOneTies": playerOneTies
+                    });
+    
                 
+                    seatAvailable = 50;
                     // alert("Player1 scores have changed iteration{" + x + "]");
                 }
             }
         
-            if (((tempPlayerOneID != " ") || (tempPlayerOneID != "")) && ((tempPlayerTwoID == "") || (tempPlayerTwoID == " "))) {
+            // if (((tempPlayerOneID != " ") || (tempPlayerOneID != "")) && ((tempPlayerTwoID == "") || (tempPlayerTwoID == " "))) {
+            else if (seatAvailable = 2) {
                 var tempName = $("#inputUser").val();
                 $("#player1Title").text("Player 2: " + $("#inputUser").val());
                 // to test the scores player1
@@ -235,13 +254,42 @@ $(document).ready(function() {
 
                     currentScores(2, randWins, randLosses, randTies);
                 
-                    // alert("Player1 scores have changed iteration{" + x + "]");
+                    playerTwoWins = randWins;
+                    playerTwoLosses = randLosses;
+                    playerTwoTies = randTies;
+
+                    rootRef.update({
+                        "playerTwoName": tempName,
+                        "playerTwoID": connectionID,
+                        "playerTwoWins": playerTwoWins,
+                        "playerTwoLosses": playerTwoLosses,
+                        "playerTwoTies": playerTwoTies
+                    });
+
+                    seatAvailable = 100;
+                        // alert("Player1 scores have changed iteration{" + x + "]");
                 }
             }
         
             else {
-                alert("You need to wait until there is an open seat");
+                // alert("You need to wait until there is an open seat");
             }
+        }
+        else {
+
+        }
+        
         });
+
+        switch(seatAvailable) {
+            case 50:
+            case 100:
+                seatAvailable = 3;
+                break;
+            default:
+                break;                
+        }
     });
+
+    
 })
