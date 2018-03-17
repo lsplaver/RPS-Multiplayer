@@ -28,10 +28,10 @@
                             <p>Enter player name and click start to sit at the table</p>
                         </div>
                         <div class="col-auto">
-                            <input type="text" class="form-control" placeholder="User Name">
+                            <input type="text" class="form-control" placeholder="User Name" id="inputUser">
                         </div>
                         <div class="col-auto">
-                            <input class="btn btn-primary" type="submit" value="Start">
+                            <input class="btn btn-primary" type="submit" value="Start" id="btnSubmit">
                         </div>
                         <div class="col-auto">
                             <p>If there are already two players you will not be able to join</p>
@@ -46,6 +46,7 @@
             <br>
             <br>
         </div>
+        <div class="row">
         <div class="card-deck">
             <div class="card">
                 <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
@@ -53,7 +54,7 @@
                     <h5 class="card-title" id="player1Title">Awaiting Player 1</h5>
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     <p class="card-text">
-                        <small class="text-muted">Last updated 3 mins ago</small>
+                        <small class="text-muted" id="player1Score">Last updated 3 mins ago</small>
                     </p>
                 </div>
             </div>
@@ -73,10 +74,14 @@
                     <h5 class="card-title" id="player2Title">Awaiting Player 2</h5>
                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
                     <p class="card-text">
-                        <small class="text-muted">Last updated 3 mins ago</small>
+                        <small class="text-muted" id="player2Score">Last updated 3 mins ago</small>
                     </p>
                 </div>
             </div>
+        </div>
+        </div>
+        <div class="row">
+            <p id="lobby"></p>
         </div>
     </div>    
 </body>
