@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <title>RPS - Multiplayer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,  shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+    <script src="assets/javascript/main.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Rock Paper Scissors - Multiplayer</h1>
+        <div class="row">
+            <br>
+            <br>
+        </div>
+        <div class="row">
+            <!-- <div class="col-3"> -->
+            <!-- </div> -->
+            <div class="col"> <!-- class="col-6"> -->
+                <form> <!-- class="col-12"> -->
+                    <div class="form-row">
+                        <div class="col-auto">
+                            <p>Enter player name and click start to sit at the table</p>
+                        </div>
+                        <div class="col-auto">
+                            <input type="text" class="form-control" placeholder="User Name">
+                        </div>
+                        <div class="col-auto">
+                            <input class="btn btn-primary" type="submit" value="Start">
+                        </div>
+                        <div class="col-auto">
+                            <p>If there are already two players you will not be able to join</p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- <div class="col-3"> -->
+            <!-- </div> -->
+        </div>
+        <div class="row">
+            <br>
+            <br>
+        </div>
+        <div class="card-deck">
+            <div class="card">
+                <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+                <div class="card-body" id="player1Div">
+                    <h5 class="card-title" id="player1Title">Awaiting Player 1</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+                <div class="card-body" id="resultsDiv">
+                    <h5 class="card-title" id="resultsTitle">Results</h5>
+                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                    <p class="card-text">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+                <div class="card-body" id="player2Div">
+                    <h5 class="card-title" id="player2Title">Awaiting Player 2</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                    <p class="card-text">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>    
+</body>
+</html>
