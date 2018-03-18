@@ -98,27 +98,27 @@ $(document).ready(function() {
         // console.log("players/playerTwoWins Exists: " + snapshot.child("players/playerTwoWins").exists());
         // console.log("players/playerTwoLosses Exists: " + snapshot.child("players/playerTwoLosses").exists());
         // console.log("players/playerTwoTies Exists: " + snapshot.child("players/playerTwoTies").exists());
-        if (snapshot.child("players/playerOneID").exists() && snapshot.child("players/playerOneName").exists() && snapshot.child("players/playerOneWins").exists() && snapshot.child("players/playerOneLosses").exists() && snapshot.child("players/playerOneTies").exists() && snapshot.child("players/playerTwoID").exists() && snapshot.child("players/playerTwoName").exists() && snapshot.child("players/playerTwoWins").exists() && snapshot.child("players/playerTwoLosses").exists() && snapshot.child("players/playerTwoTies").exists()) {
-            console.log("players/playerOneID Exists: " + snapshot.child("players/playerOneID").exists());
-            console.log("players/playerOneName Exists: " + snapshot.child("players/playerOneName").exists());
-            console.log("players/playerOneWins Exists: " + snapshot.child("players/playerOneWins").exists());
-            console.log("players/playerOneLosses Exists: " + snapshot.child("players/playerOneLosses").exists());
-            console.log("players/playerOneTies Exists: " + snapshot.child("players/playerOneTies").exists());
-            console.log("players/playerTwoID Exists: " + snapshot.child("players/playerTwoID").exists());
-            console.log("players/playerTwoName Exists: " + snapshot.child("players/playerTwoName").exists());
-            console.log("players/playerTwoWins Exists: " + snapshot.child("players/playerTwoWins").exists());
-            console.log("players/playerTwoLosses Exists: " + snapshot.child("players/playerTwoLosses").exists());
-            console.log("players/playerTwoTies Exists: " + snapshot.child("players/playerTwoTies").exists());
-            if (/*(currentLobbySize > 2) && */((snapshot.child("players/playerOneID") !== "randIDOne") && (snapshot.child("players/playerOneName") !== "randNameOne") && (snapshot.child("players/playerOneWins") !== "randWinsOne") && (snapshot.child("players/playerOneLosses") !== "randLossesOne") && (snapshot.child("players/playerOneTies") !== "randTiesOne") && (snapshot.child("players/playerTwoID") !== "randIDTwo") && (snapshot.child("players/playerTwoName") !== "randNameTwo") && (snapshot.child("players/playerTwoWins") !== "randWinsTwo") && (snapshot.child("players/playerTwoLosses") !== "randLossesTwo") && (snapshot.child("/players/playerTwoTies") !== "randTiesTwo"))) {
+        if (snapshot.child("playerOneID").exists() && snapshot.child("playerOneName").exists() && snapshot.child("playerOneWins").exists() && snapshot.child("playerOneLosses").exists() && snapshot.child("playerOneTies").exists() && snapshot.child("playerTwoID").exists() && snapshot.child("playerTwoName").exists() && snapshot.child("playerTwoWins").exists() && snapshot.child("playerTwoLosses").exists() && snapshot.child("playerTwoTies").exists()) {
+            console.log("playerOneID Exists: " + snapshot.child("playerOneID").exists());
+            console.log("playerOneName Exists: " + snapshot.child("playerOneName").exists());
+            console.log("playerOneWins Exists: " + snapshot.child("playerOneWins").exists());
+            console.log("playerOneLosses Exists: " + snapshot.child("playerOneLosses").exists());
+            console.log("playerOneTies Exists: " + snapshot.child("playerOneTies").exists());
+            console.log("playerTwoID Exists: " + snapshot.child("playerTwoID").exists());
+            console.log("playerTwoName Exists: " + snapshot.child("playerTwoName").exists());
+            console.log("playerTwoWins Exists: " + snapshot.child("playerTwoWins").exists());
+            console.log("playerTwoLosses Exists: " + snapshot.child("playerTwoLosses").exists());
+            console.log("playerTwoTies Exists: " + snapshot.child("playerTwoTies").exists());
+            if (/*(currentLobbySize > 2) && */((snapshot.child("playerOneID") !== "randIDOne") && (snapshot.child("playerOneName") !== "randNameOne") && (snapshot.child("playerOneWins") !== "randWinsOne") && (snapshot.child("playerOneLosses") !== "randLossesOne") && (snapshot.child("playerOneTies") !== "randTiesOne") && (snapshot.child("playerTwoID") !== "randIDTwo") && (snapshot.child("playerTwoName") !== "randNameTwo") && (snapshot.child("playerTwoWins") !== "randWinsTwo") && (snapshot.child("playerTwoLosses") !== "randLossesTwo") && (snapshot.child("/playerTwoTies") !== "randTiesTwo"))) {
                 // alert("There are currently two players already playing \nPlease wait until there is a free spot");
             
                 // playerOneID = snapshot.val().playerOneID, playerOneName = snapshot.val().playerOneName, playerOneWins = snapshot.val().playerOneWins, playerOneLosses = snapshot.val().playerOneLosses, playerOneTies = snapshot.val().playerOneTies;
             
                 // playerTwoID = snapshot.val().playerTwoID, playerTwoName = snapshot.val().playerTwoName, playerTwoWins = snapshot.val().playerTwoWins, playerTwoLosses = snapshot.val().playerTwoLosses, playerTwoTies = snapshot.val().playerTwoTies;
 
-                playerOneID = snapshot.child("players/playerOneID").val(), playerOneName = snapshot.child("players/playerOneName").val(), playerOneWins = snapshot.child("players/playerOneWins").val(), playerOneLosses = snapshot.child("players/playerOneLosses").val(), playerOneTies = snapshot.child("players/playerOneTies").val();
+                playerOneID = snapshot.child("playerOneID").val(), playerOneName = snapshot.child("playerOneName").val(), playerOneWins = snapshot.child("playerOneWins").val(), playerOneLosses = snapshot.child("playerOneLosses").val(), playerOneTies = snapshot.child("playerOneTies").val();
             
-                playerTwoID = snapshot.child("players/playerTwoID").val(), playerTwoName = snapshot.child("players/playerTwoName").val(), playerTwoWins = snapshot.child("players/playerTwoWins").val(), playerTwoLosses = snapshot.child("players/playerTwoLosses").val(), playerTwoTies = snapshot.child("players/playerTwoTies").val();
+                playerTwoID = snapshot.child("playerTwoID").val(), playerTwoName = snapshot.child("playerTwoName").val(), playerTwoWins = snapshot.child("playerTwoWins").val(), playerTwoLosses = snapshot.child("playerTwoLosses").val(), playerTwoTies = snapshot.child("playerTwoTies").val();
 
                 seatAvailable = 3; // both seats currently taken
             
@@ -134,12 +134,12 @@ $(document).ready(function() {
                 console.log("playerTwoTies: " + playerTwoTies);
             }
 
-            else if ((snapshot.child("players/playerOneID") === "randIDOne") && (snapshot.child("players/playerOneName") === "randNameOne") && (snapshot.child("players/playerOneWins") === "randWinsOne") && (snapshot.child("players/playerOneLosses") === "randLossesOne") && (snapshot.child("players/playerOneTies") === "randTiesOne") && (snapshot.child("players/playerTwoID") !== "randIDTwo") && (snapshot.child("players/playerTwoName") !== "randNameTwo") && (snapshot.child("players/playerTwoWins") !== "randWinsTwo") && (snapshot.child("players/playerTwoLosses") !== "randLossesTwo") && (snapshot.child("players/playerTwoTies") !== "randTiesTwo")) {
+            else if ((snapshot.child("playerOneID") === "randIDOne") && (snapshot.child("playerOneName") === "randNameOne") && (snapshot.child("playerOneWins") === "randWinsOne") && (snapshot.child("playerOneLosses") === "randLossesOne") && (snapshot.child("playerOneTies") === "randTiesOne") && (snapshot.child("playerTwoID") !== "randIDTwo") && (snapshot.child("playerTwoName") !== "randNameTwo") && (snapshot.child("playerTwoWins") !== "randWinsTwo") && (snapshot.child("playerTwoLosses") !== "randLossesTwo") && (snapshot.child("playerTwoTies") !== "randTiesTwo")) {
                 // alert("Seat one is now available if you wish to play");
 
                 // playerTwoID = snapshot.val().playerTwoID, playerTwoName = snapshot.val().playerTwoName, playerTwoWins = snapshot.val().playerTwoWins, playerTwoLosses = snapshot.val().playerTwoLosses, playerTwoTies = snapshot.val().playerTwoTies;
 
-                playerTwoID = snapshot.child("players/playerTwoID").val(), playerTwoName = snapshot.child("players/playerTwoName").val(), playerTwoWins = snapshot.child("players/playerTwoWins").val(), playerTwoLosses = snapshot.child("players/playerTwoLosses").val(), playerTwoTies = snapshot.child("players/playerTwoTies").val();
+                playerTwoID = snapshot.child("playerTwoID").val(), playerTwoName = snapshot.child("playerTwoName").val(), playerTwoWins = snapshot.child("playerTwoWins").val(), playerTwoLosses = snapshot.child("playerTwoLosses").val(), playerTwoTies = snapshot.child("playerTwoTies").val();
 
                 console.log("playerTwoID: " + playerTwoID);
                 console.log("playerTwoName: " + playerTwoName);
@@ -150,12 +150,12 @@ $(document).ready(function() {
                 seatAvailable = 1;
             }
 
-            else if ((snapshot.child("players/playerOneID") !== "randIDOne") && (snapshot.child("players/playerOneName") !== "randNameOne") && (snapshot.child("players/playerOneWins") !== "randWinsOne") && (snapshot.child("players/playerOneLosses") !== "randLossesOne") && (snapshot.child("players/playerOneTies") !== "randTiesOne") && (snapshot.child("players/playerTwoID") === "randIDTwo") && (snapshot.child("players/playerTwoName") === "randNameTwo") && (snapshot.child("players/playerTwoWins") === "randWinsTwo") && (snapshot.child("players/playerTwoLosses") === "randLossesTwo") && (snapshot.child("players/playerTwoTies") === "randTiesTwo")) {
+            else if ((snapshot.child("playerOneID") !== "randIDOne") && (snapshot.child("playerOneName") !== "randNameOne") && (snapshot.child("playerOneWins") !== "randWinsOne") && (snapshot.child("playerOneLosses") !== "randLossesOne") && (snapshot.child("playerOneTies") !== "randTiesOne") && (snapshot.child("playerTwoID") === "randIDTwo") && (snapshot.child("playerTwoName") === "randNameTwo") && (snapshot.child("playerTwoWins") === "randWinsTwo") && (snapshot.child("playerTwoLosses") === "randLossesTwo") && (snapshot.child("playerTwoTies") === "randTiesTwo")) {
             // alert("Seat two is now available if you wish to play");
 
             // playerOneID = snapshot.val().playerOneID, playerOneName = snapshot.val().playerOneName, playerOneWins = snapshot.val().playerOneWins, playerOneLosses = snapshot.val().playerOneLosses, playerOneTies = snapshot.val().playerOneTies;
 
-            playerOneID = snapshot.child("players/playerOneID").val(), playerOneName = snapshot.child("players/playerOneName").val(), playerOneWins = snapshot.child("players/playerOneWins").val(), playerOneLosses = snapshot.child("players/playerOneLosses").val(), playerOneTies = snapshot.child("players/playerOneTies").val();
+            playerOneID = snapshot.child("playerOneID").val(), playerOneName = snapshot.child("playerOneName").val(), playerOneWins = snapshot.child("playerOneWins").val(), playerOneLosses = snapshot.child("playerOneLosses").val(), playerOneTies = snapshot.child("playerOneTies").val();
             
             seatAvailable = 2;
 
@@ -214,9 +214,9 @@ $(document).ready(function() {
     $("#btnSubmit").on("click", function(event) {
         event.preventDefault();
         database.ref("/players").on("value", function(snapshot) {
-            var tempPlayerOneID = snapshot.child("players/playerOneID").val();
+            var tempPlayerOneID = snapshot.child("playerOneID").val();
             console.log("tempPlayerOneID: " + tempPlayerOneID);
-            var tempPlayerTwoID = snapshot.child("players/playerTwoID").val();
+            var tempPlayerTwoID = snapshot.child("playerTwoID").val();
             console.log("tempPlayerTwoID: " + tempPlayerTwoID);
 
             // switch (connectionID) {
