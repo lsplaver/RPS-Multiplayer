@@ -87,6 +87,21 @@ $(document).ready(function() {
         }
 
     database.ref("/players").on("value", function(snapshot) {
+        // current players and score
+        var tempPlayerOneName, tempPlayerOneWins, tempPlayerOneLosses, tempPlayerOneTies, tempPlayerTwoName, tempPlayerTwoWins, tempPlayerTwoLosses, tempPlayerTwoTies;
+        tempPlayerOneName = snapshot.child("playerOneName").val();
+        tempPlayerOneWins = snapshot.child("playerOneWins").val();
+        tempPlayerOneLosses = snapshot.child("playerOneLosses").val();
+        tempPlayerOneTies = snapshot.child("playerOneTies").val();
+        tempPlayerTwoName = snapshot.child("playerTwoName").val();
+        tempPlayerTwoWins = snapshot.child("playerTwoWins").val();
+        tempPlayerTwoLosses = snapshot.child("playerTwoLosses").val();
+        tempPlayerTwoTies = snapshot.child("playerTwoTies").val();
+
+        $("#player1Title").text("Player 1: " + tempPlayerOneName);
+        currentScores(1, tempPlayerOneWins, tempPlayerOneLosses, tempPlayerOneTies);
+        $("#player2Title").text("Player 2: " + tempPlayerTwoName);
+        currentScores(2, tempPlayerTwoWins, tempPlayerTwoLosses, tempPlayerTwoTies);
         // event.preventDefault();
         // console.log("players/playerOneID Exists: " + snapshot.child("players/playerOneID").exists());
         // console.log("players/playerOneName Exists: " + snapshot.child("players/playerOneName").exists());
